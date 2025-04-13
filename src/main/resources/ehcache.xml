@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns="http://www.ehcache.org/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <!-- Define a cache for Hibernate's query cache -->
+    <cache alias="org.hibernate.cache.internal.StandardQueryCache">
+        <heap size="1000" />
+        <expiry>
+            <ttl unit="seconds">600</ttl> <!-- Time to live -->
+        </expiry>
+    </cache>
+
+    <!-- Define a cache for Hibernate's entity region -->
+    <cache alias="org.hibernate.cache.internal.EntityRegionImpl">
+        <heap size="1000" />
+        <expiry>
+            <ttl unit="seconds">600</ttl>
+        </expiry>
+    </cache>
+
+    <!-- Optional: Define cache for collections -->
+    <cache alias="org.hibernate.cache.internal.CollectionRegionImpl">
+        <heap size="1000" />
+        <expiry>
+            <ttl unit="seconds">600</ttl>
+        </expiry>
+    </cache>
+</ehcache>

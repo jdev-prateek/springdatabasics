@@ -1,11 +1,19 @@
 package com.example.springdatabasics.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Category {
 
     @Id
